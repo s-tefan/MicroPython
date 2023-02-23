@@ -5,7 +5,7 @@ import utime
 Avkodar en rotationskodare.
 Rotationsencoder till nolla med 100 nF parallellt
 Inbyggd pullup på pico enligt uppgift ca 50 KOhm
-Fungerar nära perfekt
+Fungerar nära perfekt med lite felrättning
 '''
 
 pinA = Pin(5, Pin.IN, Pin.PULL_UP)
