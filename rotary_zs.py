@@ -3,8 +3,8 @@ import utime
 
 '''
 Avkodar en rotationskodare.
-Rotationsencoder till nolla med 100 nF parallellt
-och 1KOhm i serie
+Rotationsencoder till nolla med 1KOhm i serie
+100 nF parallellt över input. 
 Inbyggd pullup på pico enligt uppgift ca 50 KOhm
 Fungerar nära perfekt med lite felrättning
 '''
