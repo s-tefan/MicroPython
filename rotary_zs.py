@@ -4,6 +4,7 @@ import utime
 '''
 Avkodar en rotationskodare.
 Rotationsencoder till nolla med 100 nF parallellt
+och 1KOhm i serie
 Inbyggd pullup på pico enligt uppgift ca 50 KOhm
 Fungerar nära perfekt med lite felrättning
 '''
@@ -19,7 +20,6 @@ irqA = pinA.irq(trigger=Pin.IRQ_FALLING | Pin.IRQ_RISING, handler=callback)
 irqB = pinB.irq(trigger=Pin.IRQ_FALLING | Pin.IRQ_RISING, handler=callback)
 
 interruptflag = 0
-q = ()
 bq = 0
 position = 0
 while True:
