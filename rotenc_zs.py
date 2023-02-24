@@ -23,7 +23,7 @@ class RotEnc:
         self.changed = False
 
     def callback(self, pin):
-        self.interruptflag = 1
+        #self.interruptflag = 1
         self.fixit()
         
     def fixit(self):
@@ -39,7 +39,7 @@ class RotEnc:
             self.changed = True
         elif flags != self.bq & 0b1111:
             self.bq = (self.bq << 4) | flags
-        self.interruptflag = 0
+        #self.interruptflag = 0
 
 if __name__ == '__main__':
     """Test with encoder on pins 5 and 6 and print out values on change."""
