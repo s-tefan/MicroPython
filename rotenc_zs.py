@@ -7,7 +7,9 @@ class RotEnc:
     The rotary encoder should be filtered for debouncing,
     for example by an RC filter.
     C between MC pin and ground. R between pin and encoder.
-    Proposed values C = 100 nF, R = 1 KOhm.
+    Internal pullup in pico is said to be ~50 kOhm
+    Proposed values C = 100 nF, R = 1 kOhm.
+    R needs to be small relative to pullup to bring signal low.
     Further debouncing is achieved by error correcting in fixit().
     Stefan Karlsson, 2023
     """
