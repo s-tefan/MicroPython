@@ -21,8 +21,7 @@ try:
         while not k & m:
             m <<= 1
         g ^= m
-        utime.sleep_ms(5
-                       0)
+        utime.sleep_ms(50)
 finally:
     # Släck när du går, är du snäll ...
     print("Nu stänger vi!")
