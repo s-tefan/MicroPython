@@ -11,11 +11,17 @@ for k in range(8):
 n = 0
 machine.mem32[gpio_oe] |= 0xff # output enable gpio 0--7
 try:
+    k, g = 0, 0
     while True:
-        #print(n)
-        machine.mem32[gpio_out] = n # set
+        machine.mem32[gpio_out] = g # set
+        k += 1
+        if k > 0xff:
+            k == 0
+        m = 0b1
+        while not k & m:
+            m <<= 1
+        g ^= m
         utime.sleep_ms(50)
-        n = (n + 1) & 0xff
 finally:
     # Släck när du går, är du snäll ...
     print("Nu stänger vi!")
