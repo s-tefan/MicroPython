@@ -21,7 +21,7 @@ try:
         while not k & m:
             m <<= 1
         machine.mem32[gpio_out_xor] = m
-        utime.sleep_ms(50)
+        utime.sleep_ms(20)
 finally:
     # Släck när du går, är du snäll ...
     print("Nu stänger vi!")
