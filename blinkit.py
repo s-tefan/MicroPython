@@ -1,5 +1,4 @@
 from machine import Pin
-
 class RotEnc:
     """Decodes a rotary encoder.
 
@@ -43,11 +42,30 @@ class RotEnc:
             self.bq = (self.bq << 4) | flags
         #self.interruptflag = 0
 
-if __name__ == '__main__':
-    """Test with encoder on two pins and print out values on change."""
-    renc = RotEnc(16,17)
-    while True:
-        if renc.changed:
-            print(renc.value)
-            renc.changed = False
-        
+sio_base = const(0xd0000000)
+io_bank0_base = const(0x40014000)
+gpio_oe = const(sio_base + 0x20) # output enable (1/0 -> out/in)
+gpio_oe_set = const(sio_base + 0x24) # set out (1/0 -> out/in)
+gpio_oe_clr = const(sio_base + 0x28) # set in (1/0 -> out/in)
+gpio_in = const(sio_base + 0x04) # input value (1/0 -> high/low)
+gpio_out = const(sio_base + 0x10) # output value (1/0 -> high/low)
+gpio_out_xor = const(sio_base + 0x1c) # output value (1/0 -> high/low)
+
+
+for k in range(8):
+    machine.mem32[io_bank0_base + k*0x08 + 0x04] = 5 # funcsel 5 -> sio på gpio 0--7
+n = 0
+
+n = 255
+machine.mem32[gpio_oe_set] = 0xff # 1 -- 7 output
+
+print(machine.mem32[gpio_oe])
+jag bytte från rotationsenkodaren jag nyss köpte som ha
+renc = RotEnc(16,17)
+while True:
+    if renc.changed:
+        #print(renc.value)
+        machine.mem32[gpio_out] = 0x1 << (renc.value % 8)
+        renc.changed = False
+    
+
