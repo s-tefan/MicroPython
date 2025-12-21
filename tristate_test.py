@@ -14,10 +14,12 @@ def stateset(pinlist, state):
 statelist = [(0,1,2),(1,0,2),(0,2,1),(1,2,0),(2,0,1),(2,1,0)]
 L0 = Pin(0,Pin.IN)
 L1 = Pin(1,Pin.IN)
-L2 =  Pin(2,Pin.IN)
+L2 = Pin(2,Pin.IN)
 pinlist = [L0,L1,L2]
-for state in statelist:
-    print(state)
-    stateset(pinlist,state)
-    time.sleep(1)
+for _ in range(100):
+    for state in statelist:
+        stateset(pinlist,state)
+        time.sleep(0.1)
+        
+
 
