@@ -16,8 +16,8 @@ L0 = Pin(0,Pin.IN)
 L1 = Pin(1,Pin.IN)
 L2 = Pin(2,Pin.IN)
 pinlist = [L0,L1,L2]
-for _ in range(100):
-    for state in statelist:
+for _ in range(3):
+    for state in statelist + list(reversed(statelist)):
         stateset(pinlist,state)
         time.sleep(0.1)
         
