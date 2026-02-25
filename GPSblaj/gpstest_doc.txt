@@ -1,0 +1,11 @@
+Gemini 3:
+
+Getting a GPS module like the GY-NEO6MV2 (a common NEO-6M variant) working with a Raspberry Pi Pico is a classic project. Since the Pico uses 3.3V logic and the NEO-6M is quite happy with that, they make a great pair.
+The Wiring
+
+The NEO-6M communicates via UART (serial). You’ll need to connect the cross-signals (TX to RX).
+NEO-6MV2 Pin	Pico Pin	Physical Pin #
+VCC	3V3 (OUT)	Pin 36
+GND	GND	Pin 38
+TX	GP1 (UART0 RX)	Pin 2
+RX	GP0 (UART0 TX)	Pin 1
