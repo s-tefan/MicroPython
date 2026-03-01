@@ -1,6 +1,6 @@
 from machine import UART, Pin
 import time
-
+# Connect NEO-6M RX to GP0 and TX to GP1
 # Initialize UART0 on GP0 (TX) and GP1 (RX)
 # The NEO-6M defaults to a baud rate of 9600
 gps_module = UART(0, baudrate=9600, tx=Pin(0), rx=Pin(1))
